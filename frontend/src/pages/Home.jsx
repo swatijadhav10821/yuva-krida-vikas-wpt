@@ -44,9 +44,9 @@ function Home() {
         <div className="grid md:grid-cols-3 gap-4">
           {tournaments.map((t) => (
             <div key={t.tournament_id} className="bg-white p-4 rounded shadow">
-              <h3 className="font-semibold">{t.name}</h3>
-              <p className="text-gray-600">{t.sport}</p>
+              <h3 className="font-semibold">{t.title}</h3>
               <p className="text-gray-600">{t.start_date}</p>
+              <p className="text-gray-600">{t.status}</p>
             </div>
           ))}
         </div>
