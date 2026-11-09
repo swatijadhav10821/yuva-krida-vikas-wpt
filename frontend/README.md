@@ -1,16 +1,48 @@
-# React + Vite
+# Youth Sports Talent Development and Facility Management Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Web name: Yuva Krida Vikas
 
-Currently, two official plugins are available:
+A web application where young athletes find training, book sports facilities and register for tournaments. Coaches manage training and match scores. Admins manage users, facilities, tournaments and visitor messages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technology
 
-## React Compiler
+- Frontend: React (Vite), Tailwind CSS, React Router, Axios
+- Backend: Node.js, Express
+- Database: MySQL
+- Login: JWT and bcrypt
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Roles
 
-## Expanding the ESLint configuration
+- Visitor: Home, About, Contact, Tournaments, Register, Login
+- Athlete: dashboard, book a facility, training, tournament registration
+- Coach: dashboard, attendance, enter match scores
+- Admin: users, messages, facilities, tournaments
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Setup
+
+1. Clone the repository and open the folder.
+2. Database: create the database `yuva_krida_vikas`, then run `database/schema.sql` and `database/sample_data.sql` in MySQL.
+3. Backend:
+   - `cd backend`
+   - copy `config.example.js` to `config.js` and fill in your MySQL password and a JWT secret
+   - `npm install`
+   - `node server.js`
+4. Frontend:
+   - `cd frontend`
+   - `npm install`
+   - `npm run dev`
+5. Open `http://localhost:5173`
+
+## Test logins
+
+Password for all: test123
+
+- admin@ykv.com (admin)
+- coach@ykv.com (coach)
+- athlete@ykv.com (athlete)
+
+## Team
+
+- Krishna
+- Narayan
+- Swati
