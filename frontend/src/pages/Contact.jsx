@@ -47,11 +47,9 @@ function Contact() {
   }
 
   return (
-    <div
-      className="photo-bg min-h-[calc(100vh-7.5rem)] flex items-center py-10"
-      style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(/images/court.jpg)' }}
-    >
-    <div className="max-w-5xl w-full mx-auto px-6 grid md:grid-cols-2 gap-8">
+    <div className="photo-bg" style={{ backgroundImage: 'url(/images/court.jpg)' }}>
+    <div className="bg-black bg-opacity-60 py-24">
+    <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8">
       <div className="text-white">
         <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
         <p className="mb-6">
@@ -108,6 +106,7 @@ function Contact() {
           <button type="submit" className="w-full bg-blue-800 text-white py-2 rounded">Send message</button>
         </form>
       </div>
+    </div>
     </div>
     </div>
   );

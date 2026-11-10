@@ -17,10 +17,8 @@ function Home() {
 
   return (
     <div>
-      <div
-        className="photo-bg text-white py-24 px-6 text-center"
-        style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(/images/hero.jpg)' }}
-      >
+      <div className="photo-bg" style={{ backgroundImage: 'url(/images/hero.jpg)' }}>
+      <div className="bg-black bg-opacity-60 text-white py-24 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Yuva Krida Vikas</h1>
         <p className="text-lg md:text-xl mb-8">Train. Book. Compete. One platform for young sportspersons.</p>
         {user ? (
@@ -37,6 +35,7 @@ function Home() {
             </Link>
           </>
         )}
+      </div>
       </div>
 
       <div className="max-w-5xl mx-auto my-10 px-6 grid md:grid-cols-3 gap-6">
@@ -59,15 +58,9 @@ function Home() {
           <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Focus sports</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {sports.map((sport) => (
-              <div key={sport} className="relative overflow-hidden rounded shadow">
-                <img
-                  src={'/images/' + sport.toLowerCase() + '.jpg'}
-                  alt={sport}
-                  className="w-full h-64 object-cover transition duration-300 hover:scale-105"
-                />
-                <p className="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center font-semibold py-2">
-                  {sport}
-                </p>
+              <div key={sport} className="rounded shadow bg-gray-800">
+                <img src={'/images/' + sport.toLowerCase() + '.jpg'} alt={sport} className="w-full rounded" />
+                <p className="text-white text-center font-semibold py-2">{sport}</p>
               </div>
             ))}
           </div>
