@@ -97,6 +97,7 @@ function CoachDashboard() {
 
       <div className="mb-6">
         <Link to="/coach/scores" className="bg-blue-800 text-white px-4 py-2 rounded mr-3">Enter match scores</Link>
+        <Link to="/coach/messages" className="bg-blue-800 text-white px-4 py-2 rounded mr-3">My messages</Link>
         <Link to="/tournaments" className="bg-blue-800 text-white px-4 py-2 rounded">Tournaments</Link>
       </div>
 

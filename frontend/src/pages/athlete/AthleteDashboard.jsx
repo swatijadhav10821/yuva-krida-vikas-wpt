@@ -48,6 +48,7 @@ function AthleteDashboard() {
       <div className="mb-6">
         <Link to="/athlete/book" className="bg-blue-800 text-white px-4 py-2 rounded mr-3">Book a facility</Link>
         <Link to="/athlete/training" className="bg-blue-800 text-white px-4 py-2 rounded mr-3">Training programs</Link>
+        <Link to="/athlete/messages" className="bg-blue-800 text-white px-4 py-2 rounded mr-3">My messages</Link>
         <Link to="/tournaments" className="bg-blue-800 text-white px-4 py-2 rounded">Tournaments</Link>
       </div>
 
