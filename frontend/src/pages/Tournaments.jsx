@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
+import { AuthContext } from '../context/AuthContext';
 
 function Tournaments() {
+  const { user } = useContext(AuthContext);
   const [tournaments, setTournaments] = useState([]);
   const [filter, setFilter] = useState('all');
   const [error, setError] = useState('');
@@ -17,7 +19,8 @@ function Tournaments() {
 
   return (
     <div className="max-w-5xl mx-auto my-8 px-6">
-      <h1 className="text-3xl font-bold text-blue-800 mb-4">Tournaments</h1>
+      {user && <Link to={'/' + user.role} className="text-blue-700">Back to Dashboard</Link>}
+      <h1 className="text-3xl font-bold text-blue-800 mt-2 mb-4">Tournaments</h1>
 
       <div className="mb-4">
         <label className="mr-2">Show:</label>
