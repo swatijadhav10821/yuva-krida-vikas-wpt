@@ -44,7 +44,11 @@
      }
 
      return (
-       <div className="max-w-md mx-auto mt-10 bg-white p-8 rounded shadow">
+       <div
+         className="photo-bg min-h-[calc(100vh-7.5rem)] flex items-center justify-center px-6 py-10"
+         style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(/images/stadium.jpg)' }}
+       >
+       <div className="w-full max-w-md bg-white p-8 rounded shadow-lg">
          <h1 className="text-2xl font-bold text-blue-800 mb-6">Login</h1>
 
          {error && <p className="bg-red-100 text-red-700 px-3 py-2 rounded mb-4">{error}</p>}
@@ -72,6 +76,7 @@
          <p className="mt-4 text-sm">
            New here? <Link to="/register" className="text-blue-800 underline">Create an account</Link>
          </p>
+       </div>
        </div>
      );
    }

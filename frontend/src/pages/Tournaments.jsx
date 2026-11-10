@@ -37,7 +37,7 @@ function Tournaments() {
 
       <div className="grid md:grid-cols-2 gap-4">
         {shown.map((t) => (
-          <div key={t.tournament_id} className="bg-white p-5 rounded shadow">
+          <div key={t.tournament_id} className="card">
             <h2 className="text-xl font-semibold mb-1">{t.title}</h2>
             <p className="text-gray-600">{t.sport} at {t.facility_name}, {t.location}</p>
             <p className="text-gray-600">{t.start_date} to {t.end_date}</p>
