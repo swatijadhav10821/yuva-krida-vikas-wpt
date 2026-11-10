@@ -1,5 +1,5 @@
-   import { useState, useContext } from 'react';
-   import { Link, Navigate, useNavigate } from 'react-router-dom';
+   import { useState, useEffect, useContext } from 'react';
+   import { Link, useNavigate } from 'react-router-dom';
    import api from '../api';
    import { AuthContext } from '../context/AuthContext';
 
@@ -43,15 +43,19 @@
        }
      }
 
+     useEffect(() => {
+       if (user) {
+         navigate('/' + user.role);
+       }
+     }, [user, navigate]);
+
      if (user) {
-       return <Navigate to={'/' + user.role} />;
+       return null;
      }
 
      return (
-       <div
-         className="photo-bg min-h-[calc(100vh-7.5rem)] flex items-center justify-center px-6 py-10"
-         style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(/images/stadium.jpg)' }}
-       >
+       <div className="photo-bg" style={{ backgroundImage: 'url(/images/stadium.jpg)' }}>
+       <div className="bg-black bg-opacity-50 flex justify-center px-6 py-36">
        <div className="w-full max-w-md bg-white p-8 rounded shadow-lg">
          <h1 className="text-2xl font-bold text-blue-800 mb-6">Login</h1>
 
@@ -80,6 +84,7 @@
          <p className="mt-4 text-sm">
            New here? <Link to="/register" className="text-blue-800 underline">Create an account</Link>
          </p>
+       </div>
        </div>
        </div>
      );

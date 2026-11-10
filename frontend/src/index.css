@@ -8,6 +8,6 @@
   }
 
   .card {
-    @apply bg-white p-5 rounded shadow hover:shadow-lg;
+    @apply bg-white p-5 rounded shadow;
   }
 }

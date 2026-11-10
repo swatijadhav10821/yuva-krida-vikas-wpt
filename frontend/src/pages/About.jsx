@@ -1,11 +1,10 @@
 function About() {
   return (
     <div>
-    <div
-      className="photo-bg py-16 text-center text-white"
-      style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(/images/hero.jpg)' }}
-    >
-      <h1 className="text-3xl md:text-4xl font-bold">About Yuva Krida Vikas</h1>
+    <div className="photo-bg" style={{ backgroundImage: 'url(/images/hero.jpg)' }}>
+      <div className="bg-black bg-opacity-60 py-16 text-center text-white">
+        <h1 className="text-3xl md:text-4xl font-bold">About Yuva Krida Vikas</h1>
+      </div>
     </div>
     <div className="max-w-4xl mx-auto my-10 px-6">
       <p className="text-gray-700 mb-6">

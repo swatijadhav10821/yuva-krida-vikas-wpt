@@ -1,17 +1,7 @@
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS=0;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 DROP TABLE IF EXISTS `bookings`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bookings` (
   `booking_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
@@ -29,10 +19,7 @@ CREATE TABLE `bookings` (
   CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`facility_id`) ON DELETE RESTRICT,
   CONSTRAINT `bookings_chk_1` CHECK ((`end_time` > `start_time`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `enrollments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `enrollments` (
   `enrollment_id` int NOT NULL AUTO_INCREMENT,
   `training_id` int NOT NULL,
@@ -45,10 +32,7 @@ CREATE TABLE `enrollments` (
   CONSTRAINT `enrollments_ibfk_1` FOREIGN KEY (`training_id`) REFERENCES `trainings` (`training_id`) ON DELETE CASCADE,
   CONSTRAINT `enrollments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `facilities`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `facilities` (
   `facility_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -59,10 +43,7 @@ CREATE TABLE `facilities` (
   PRIMARY KEY (`facility_id`),
   CONSTRAINT `facilities_chk_1` CHECK ((`capacity` > 0))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `matches`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `matches` (
   `match_id` int NOT NULL AUTO_INCREMENT,
   `tournament_id` int NOT NULL,
@@ -80,10 +61,7 @@ CREATE TABLE `matches` (
   CONSTRAINT `matches_ibfk_1` FOREIGN KEY (`tournament_id`) REFERENCES `tournaments` (`tournament_id`) ON DELETE CASCADE,
   CONSTRAINT `matches_ibfk_2` FOREIGN KEY (`entered_by`) REFERENCES `users` (`user_id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `messages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `messages` (
   `message_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
@@ -97,10 +75,7 @@ CREATE TABLE `messages` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `registrations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `registrations` (
   `registration_id` int NOT NULL AUTO_INCREMENT,
   `tournament_id` int NOT NULL,
@@ -113,10 +88,7 @@ CREATE TABLE `registrations` (
   CONSTRAINT `registrations_ibfk_1` FOREIGN KEY (`tournament_id`) REFERENCES `tournaments` (`tournament_id`) ON DELETE CASCADE,
   CONSTRAINT `registrations_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `tournaments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tournaments` (
   `tournament_id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(150) NOT NULL,
@@ -135,10 +107,7 @@ CREATE TABLE `tournaments` (
   CONSTRAINT `tournaments_chk_1` CHECK ((`end_date` >= `start_date`)),
   CONSTRAINT `tournaments_chk_2` CHECK ((`last_date` <= `start_date`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `trainings`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `trainings` (
   `training_id` int NOT NULL AUTO_INCREMENT,
   `coach_id` int NOT NULL,
@@ -156,10 +125,7 @@ CREATE TABLE `trainings` (
   CONSTRAINT `trainings_chk_1` CHECK ((`seats` > 0)),
   CONSTRAINT `trainings_chk_2` CHECK ((`end_time` > `start_time`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `user_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -178,14 +144,5 @@ CREATE TABLE `users` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
+SET FOREIGN_KEY_CHECKS=1;
