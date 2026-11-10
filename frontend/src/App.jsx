@@ -14,6 +14,7 @@ import Training from './pages/athlete/Training';
 import CoachDashboard from './pages/coach/CoachDashboard';
 import Attendance from './pages/coach/Attendance';
 import EnterScores from './pages/coach/EnterScores';
+import MyMessages from './pages/MyMessages';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminUsers from './pages/admin/AdminUsers';
 import AdminFacilities from './pages/admin/AdminFacilities';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/athlete" element={<ProtectedRoute roles={['athlete']}><Outlet /></ProtectedRoute>}>
           <Route index element={<AthleteDashboard />} />
           <Route path="book" element={<BookFacility />} />
+          <Route path="messages" element={<MyMessages />} />
           <Route path="training" element={<Training />} />
         </Route>
 
@@ -41,6 +43,7 @@ function App() {
           <Route index element={<CoachDashboard />} />
           <Route path="trainings/:id" element={<Attendance />} />
           <Route path="scores" element={<EnterScores />} />
+          <Route path="messages" element={<MyMessages />} />
         </Route>
 
         <Route path="/admin" element={<ProtectedRoute roles={['admin']}><Outlet /></ProtectedRoute>}>
