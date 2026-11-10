@@ -1,5 +1,5 @@
    import { useState, useContext } from 'react';
-   import { Link, useNavigate } from 'react-router-dom';
+   import { Link, Navigate, useNavigate } from 'react-router-dom';
    import api from '../api';
    import { AuthContext } from '../context/AuthContext';
 
@@ -7,7 +7,7 @@
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
      const [error, setError] = useState('');
-     const { login } = useContext(AuthContext);
+     const { user, login } = useContext(AuthContext);
      const navigate = useNavigate();
 
      function dashboardPath(role) {
@@ -41,6 +41,10 @@
            setError('Cannot reach the server');
          }
        }
+     }
+
+     if (user) {
+       return <Navigate to={'/' + user.role} />;
      }
 
      return (

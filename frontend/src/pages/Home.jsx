@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
+import { AuthContext } from '../context/AuthContext';
 
 const sports = ['Cricket', 'Badminton', 'Shooting', 'Wrestling', 'Hockey'];
 
 function Home() {
+  const { user } = useContext(AuthContext);
   const [tournaments, setTournaments] = useState([]);
 
   useEffect(() => {
@@ -21,12 +23,20 @@ function Home() {
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Yuva Krida Vikas</h1>
         <p className="text-lg md:text-xl mb-8">Train. Book. Compete. One platform for young sportspersons.</p>
-        <Link to="/register" className="bg-brand-orange text-white px-6 py-2 rounded font-semibold mr-3 hover:bg-orange-600">
-          Join now
-        </Link>
-        <Link to="/login" className="border-2 border-white text-white px-6 py-2 rounded font-semibold hover:bg-white hover:text-brand-navy">
-          Login
-        </Link>
+        {user ? (
+          <Link to={'/' + user.role} className="bg-brand-orange text-white px-6 py-2 rounded font-semibold hover:bg-orange-600">
+            Go to my dashboard
+          </Link>
+        ) : (
+          <>
+            <Link to="/register" className="bg-brand-orange text-white px-6 py-2 rounded font-semibold mr-3 hover:bg-orange-600">
+              Join now
+            </Link>
+            <Link to="/login" className="border-2 border-white text-white px-6 py-2 rounded font-semibold hover:bg-white hover:text-brand-navy">
+              Login
+            </Link>
+          </>
+        )}
       </div>
 
       <div className="max-w-5xl mx-auto my-10 px-6 grid md:grid-cols-3 gap-6">

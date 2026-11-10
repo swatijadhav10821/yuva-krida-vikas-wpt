@@ -1,6 +1,7 @@
-   import { useState } from 'react';
-   import { Link, useNavigate } from 'react-router-dom';
+   import { useState, useContext } from 'react';
+   import { Link, Navigate, useNavigate } from 'react-router-dom';
    import api from '../api';
+import { AuthContext } from '../context/AuthContext';
 
    function Register() {
      const [form, setForm] = useState({
@@ -17,6 +18,7 @@
        sport: ''
      });
      const [error, setError] = useState('');
+     const { user } = useContext(AuthContext);
      const navigate = useNavigate();
 
      const inputClass = 'w-full border rounded px-3 py-2 mb-4';
@@ -80,6 +82,10 @@
            setError('Cannot reach the server');
          }
        }
+     }
+
+     if (user) {
+       return <Navigate to={'/' + user.role} />;
      }
 
      return (
