@@ -53,6 +53,8 @@ function TournamentDetails() {
 
   return (
     <div className="max-w-4xl mx-auto my-8 px-6">
+      {user && <Link to={'/' + user.role} className="text-blue-700">Back to Dashboard</Link>}
+      <br />
       <Link to="/tournaments" className="text-blue-700">Back to tournaments</Link>
       <h1 className="text-3xl font-bold text-blue-800 mt-2 mb-3">{tournament.title}</h1>
 

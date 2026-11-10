@@ -1,3 +1,13 @@
-   @tailwind base;
-   @tailwind components;
-   @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .photo-bg {
+    @apply bg-cover bg-center;
+  }
+
+  .card {
+    @apply bg-white p-5 rounded shadow hover:shadow-lg;
+  }
+}

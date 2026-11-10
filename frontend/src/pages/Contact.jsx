@@ -44,10 +44,14 @@ function Contact() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto my-10 px-6 grid md:grid-cols-2 gap-8">
-      <div>
-        <h1 className="text-3xl font-bold text-blue-800 mb-4">Contact Us</h1>
-        <p className="mb-6 text-gray-700">
+    <div
+      className="photo-bg min-h-[calc(100vh-7.5rem)] flex items-center py-10"
+      style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(/images/court.jpg)' }}
+    >
+    <div className="max-w-5xl w-full mx-auto px-6 grid md:grid-cols-2 gap-8">
+      <div className="text-white">
+        <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
+        <p className="mb-6">
           Have a question about tournaments, training or booking a facility? Send us a message and we will reply soon.
         </p>
         <p className="mb-2"><span className="font-semibold">Address:</span> Yuva Krida Vikas Office, Shivajinagar, Pune</p>
@@ -91,6 +95,7 @@ function Contact() {
           <button type="submit" className="w-full bg-blue-800 text-white py-2 rounded">Send message</button>
         </form>
       </div>
+    </div>
     </div>
   );
 }

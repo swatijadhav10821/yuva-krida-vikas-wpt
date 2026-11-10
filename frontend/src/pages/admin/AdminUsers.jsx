@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../api';
 
 function AdminUsers() {
@@ -110,7 +111,8 @@ function AdminUsers() {
 
   return (
     <div className="max-w-6xl mx-auto my-8 px-6">
-      <h1 className="text-2xl font-bold text-blue-800 mb-4">Users and Messages</h1>
+      <Link to="/admin" className="text-blue-700">Back to Dashboard</Link>
+      <h1 className="text-2xl font-bold text-blue-800 mt-2 mb-4">Users and Messages</h1>
 
       <div className="mb-4">
         <button

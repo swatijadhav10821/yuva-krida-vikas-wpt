@@ -18,22 +18,25 @@
      }
 
      return (
-       <nav className="bg-blue-800 text-white px-6 py-3 flex items-center justify-between">
-         <Link to="/" className="text-xl font-bold">Yuva Krida Vikas</Link>
-         <div className="flex items-center gap-5">
-           <Link to="/">Home</Link>
-           <Link to="/tournaments">Tournaments</Link>
-           <Link to="/about">About</Link>
-           <Link to="/contact">Contact</Link>
+       <nav className="bg-brand-navy text-white px-6 py-2 flex flex-col md:flex-row items-center justify-between gap-2 shadow-md">
+         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
+           <img src="/logo.png" alt="Yuva Krida Vikas logo" className="h-10 w-10 rounded bg-white" />
+           Yuva Krida Vikas
+         </Link>
+         <div className="flex flex-wrap items-center justify-center gap-3 md:gap-5">
+           <Link className="hover:text-orange-300" to="/">Home</Link>
+           <Link className="hover:text-orange-300" to="/tournaments">Tournaments</Link>
+           <Link className="hover:text-orange-300" to="/about">About</Link>
+           <Link className="hover:text-orange-300" to="/contact">Contact</Link>
            {user ? (
              <>
-               <Link to={dashboardPath(user.role)}>Dashboard</Link>
+               <Link className="hover:text-orange-300" to={dashboardPath(user.role)}>Dashboard</Link>
                <span className="text-sm text-blue-200">{user.name}</span>
                <button onClick={handleLogout} className="bg-white text-blue-800 px-3 py-1 rounded">Logout</button>
              </>
            ) : (
              <>
-               <Link to="/login">Login</Link>
+               <Link className="hover:text-orange-300" to="/login">Login</Link>
                <Link to="/register" className="bg-white text-blue-800 px-3 py-1 rounded">Register</Link>
              </>
            )}

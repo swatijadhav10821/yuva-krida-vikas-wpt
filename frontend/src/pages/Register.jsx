@@ -1,6 +1,7 @@
-   import { useState } from 'react';
-   import { Link, useNavigate } from 'react-router-dom';
+   import { useState, useContext } from 'react';
+   import { Link, Navigate, useNavigate } from 'react-router-dom';
    import api from '../api';
+import { AuthContext } from '../context/AuthContext';
 
    function Register() {
      const [form, setForm] = useState({
@@ -17,6 +18,7 @@
        sport: ''
      });
      const [error, setError] = useState('');
+     const { user } = useContext(AuthContext);
      const navigate = useNavigate();
 
      const inputClass = 'w-full border rounded px-3 py-2 mb-4';
@@ -82,8 +84,16 @@
        }
      }
 
+     if (user) {
+       return <Navigate to={'/' + user.role} />;
+     }
+
      return (
-       <div className="max-w-xl mx-auto my-10 bg-white p-8 rounded shadow">
+       <div
+         className="photo-bg min-h-[calc(100vh-7.5rem)] flex items-center justify-center px-6 py-10"
+         style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(/images/court.jpg)' }}
+       >
+       <div className="w-full max-w-xl bg-white p-8 rounded shadow-lg">
          <h1 className="text-2xl font-bold text-blue-800 mb-6">Create your account</h1>
 
          {error && <p className="bg-red-100 text-red-700 px-3 py-2 rounded mb-4">{error}</p>}
@@ -160,6 +170,7 @@
          <p className="mt-4 text-sm">
            Already have an account? <Link to="/login" className="text-blue-800 underline">Login</Link>
          </p>
+       </div>
        </div>
      );
    }
