@@ -36,7 +36,7 @@ DROP TABLE IF EXISTS `facilities`;
 CREATE TABLE `facilities` (
   `facility_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `sport` enum('Cricket','Badminton','Shooting','Wrestling','Hockey') NOT NULL,
+  `sport` enum('Cricket','Badminton','Shooting','Wrestling','Hockey','Swimming') NOT NULL,
   `location` varchar(150) NOT NULL,
   `capacity` int NOT NULL,
   `status` enum('available','closed') NOT NULL DEFAULT 'available',
